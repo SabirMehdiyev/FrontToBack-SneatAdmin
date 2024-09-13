@@ -1,0 +1,39 @@
+﻿@{
+    List<Student> students = Model;
+    ViewBag.Title = "Student's List";
+}
+
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>StudentId</th>
+                    <th>Student</th>
+                    <th>Grade</th>
+                    <th>Teachers</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in students)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Grade</td>
+                        <td>
+                            <ul>
+                                @foreach (var teacherStudent in item.TeacherStudents)
+                                {
+                                    <li>
+                                        @teacherStudent.Teacher.Name
+                                    </li>
+                                }
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

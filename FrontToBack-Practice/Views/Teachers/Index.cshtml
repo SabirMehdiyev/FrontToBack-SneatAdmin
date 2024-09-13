@@ -1,0 +1,13 @@
+﻿@{
+    List<Teacher> teachers = Model;
+    ViewBag.Title = "Teacher's List";
+}
+
+
+<ul>
+    @foreach (var item in teachers)
+    {
+        <li style="font-size:25px;">@item</li>
+    }
+</ul>
+    
